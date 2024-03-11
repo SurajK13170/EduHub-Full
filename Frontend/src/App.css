@@ -1,0 +1,22 @@
+.app{
+    max-width: 1200px;
+    min-height: 100vh;
+    margin: auto;
+}
+.status{
+    background-color: rgb(254, 221, 221);
+    border: 1px solid rgb(164, 1, 1);
+    color: rgb(164, 1, 1);
+    padding: 3px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.status.success{
+    background-color: rgb(232, 254, 221);
+    border: 1px solid rgb(9, 164, 1);
+    color: rgb(9, 164, 1);
+}
+.status:empty{
+    display: none;
+}

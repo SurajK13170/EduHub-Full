@@ -1,0 +1,67 @@
+/* home.module.css */
+.heading {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .subHeading {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .courseContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .courseCard {
+    width: 300px;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    transition: transform 0.3s ease;
+  }
+  
+  .courseCard:hover {
+    transform: translateY(-5px);
+  }
+  
+  .courseInfo {
+    margin-bottom: 10px;
+  }
+  
+  .courseName {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .courseDescription {
+    color: #666666;
+    margin-bottom: 10px;
+  }
+  
+  .prerequisites {
+    font-style: italic;
+    color: #888888;
+  }
+  
+  .enrollButton {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .enrollButton:hover {
+    background-color: #0056b3;
+  }
+  

@@ -1,0 +1,52 @@
+.container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 300px;
+    width: 100%;
+}
+.form :is(h2, p){
+    margin: 0;
+}
+.form input{
+    height: 40px;
+    padding: 0 10px;
+    width: 100%;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+.form :is(input[type=submit], input[type=button], button){
+    background-color: var(--primary);
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    height: 40px;
+    width: 100%;
+    border-radius: 5px;
+}
+.form :is(input[type=submit], input[type=button], button):hover{
+    opacity: .5;
+}
+.form div{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 14px;
+    color: grey;
+}
+.form div hr{
+    flex: 1;
+    height: 1px;
+    border: none;
+    background-color: lightgrey;
+}
