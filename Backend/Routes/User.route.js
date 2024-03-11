@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const { UserModel } = require('../Models/User.model');
 const { authorize } = require("../Middleware/Authorization")
 const { auth } = require("../Middleware/Authentication")
-const validator = require('validator')
+const validator = require("validator")
 const jwt = require("jsonwebtoken")
 require("dotenv").config()
 
@@ -16,7 +16,7 @@ userRouter.get('/auth', auth, async (req, res) => {
 
 // Register route
 userRouter.post('/register', async (req, res) => {
-    const { name, email, password, age } = req.body;
+    const { name, email, password, age, role } = req.body;
     try {
         const existingUser = await UserModel.findOne({ email });
         if (existingUser) {
@@ -31,9 +31,9 @@ userRouter.post('/register', async (req, res) => {
             return res.status(400).json({ error: "Password must be strong" });
         }
         const hashedPassword = await bcrypt.hash(password, 10);
-        const newUser = new UserModel({ name, email, password: hashedPassword, age });
+        const newUser = new UserModel({ name, email, password: hashedPassword,role, age });
         await newUser.save();
-        res.status(201).json({ message: 'User registered successfully' });
+        res.status(201).json({ message: 'User registered successfully', newUser });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

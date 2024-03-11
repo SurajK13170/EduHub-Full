@@ -6,7 +6,7 @@ const {auth} = require("../Middleware/Authentication")
 const {authorize} = require("../Middleware/Authorization")
 
 // Create a lecture
-lectureRouter.post('/:id', auth, async (req, res) => {
+lectureRouter.post('/:id', auth, authorize(["SUPER_ADMIN", "ADMIN"]), async (req, res) => {
     const courseId = req.params.id;
     const { lectureTitle, description, Lecture_URL } = req.body;
     try {
@@ -59,7 +59,7 @@ lectureRouter.get('/:id', auth,async (req, res) => {
 });
 
 // Update lecture
-lectureRouter.put('/:id',auth, async (req, res) => {
+lectureRouter.put('/:id',auth,authorize(["SUPER_ADMIN", "ADMIN"]), async (req, res) => {
     const lectureId = req.params.id;
     const lectureData = req.body;
     try {
@@ -91,7 +91,7 @@ lectureRouter.delete('/:id',auth,authorize(["ADMIN"]), async (req, res) => {
 
 
 
-lectureRouter.post('/:courseId/lectures',auth, async (req, res) => {
+lectureRouter.post('/:courseId/lectures',auth, authorize(["SUPER_ADMIN", "ADMIN"]),async (req, res) => {
     try {
         const { lectureTitle,description,Lecture_URL } = req.body;
         const courseId = req.params.courseId;

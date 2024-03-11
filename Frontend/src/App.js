@@ -8,6 +8,9 @@ import { useEffect } from 'react';
 import { API_URL } from './config';
 import { useAuth } from './context/AuthContext';
 import Lecturs from './components/auth/Lecturs';
+import AddLectureForm from './Admin/AddLectureForm';
+import AdminDashboard from './Admin/AdminDashboard';
+import LectureList from './Admin/LectureList';
 
 
 function App() {
@@ -47,6 +50,10 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/lecture/:id' element={<Lecturs />} />
+        <Route path='/admin/add-leacture' element={<AddLectureForm />} />
+        <Route path='/admin' element={<AdminDashboard />} />
+        <Route path='/admin/lecture-List' element={<LectureList />} />
+
 
       </Routes>
     </BrowserRouter>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from '../css/home.module.css';
 import { API_URL } from '../config';
 import { useAuth } from '../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate , Navigate} from 'react-router-dom';
 
 function CourseCard({ course, handleEnroll, }) {
   const {auth} = useAuth()
@@ -63,6 +63,14 @@ export default function Home() {
     }
   };
 
+  if(!auth){
+    return <Navigate to={"/login"}/>
+  }
+  const  role = auth.user.role
+  console.log(role)
+  if(role === 'ADMIN'){
+    return <Navigate to={"/admin"}/>
+  }
   return (
     <div>
       <h1 className={styles.heading}>Hello, {auth?.user?.name || 'Guest'}</h1>
